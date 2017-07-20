@@ -4,6 +4,7 @@
             module: 'MMM-RandomGifs',
             position: 'top_center',
             config: { 
-            tag: "lust"
+            Key: "your api key",
+            Rating: "G" //can be Y G PG PG13 or R
             }
         },    
