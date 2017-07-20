@@ -1,21 +1,23 @@
 /* Magic Mirror
  * Module: MMM-RandomGifs
  *
- * By Mykle1
+ * By Me
  * MIT Licensed.
  */
 Module.register("MMM-RandomGifs", {
 
     defaults: {
-        picName: "2.gif",   // .jpg, .gif, .png, etc.. (animated gif's too!)
-		maxWidth: "350px",             // your picture files go in "pix" folder of module
+        Key: "",   
+		Rating: "G",
+		maxWidth: "350px",            
 		rotateInterval: 5 * 1000,
 		updateInterval: 10 * 60 * 1000,
 		
 		},                               
 
     start: function() {
-    	this.url = "http://gifbase.com/tag/lust?format=json";
+    	this.url = "https://api.giphy.com/v1/gifs/trending?api_key="+this.config.Key+"&limit=150&rating="+this.config.Rating;  
+    	//rating Y G PG PG13 R
         this.Rimgs = [];
         this.activeItem = 0;
         this.rotateInterval = null;
@@ -30,16 +32,16 @@ Module.register("MMM-RandomGifs", {
     // Override dom generator.
     getDom: function() {
     	
-           for (var i = 0; i < this.Rimgs.gifs.length; i++) {
-    	 if (this.activeItem >= this.Rimgs.gifs.length) {
+           for (var i = 0; i < this.Rimgs.data.length; i++) {
+    	 if (this.activeItem >= this.Rimgs.data.length) {
                 this.activeItem = 0;
            }
-    	 var imgs = this.Rimgs.gifs[this.activeItem];
-    	
+    	 var imgs = this.Rimgs.data[this.activeItem];
+    	//console.log(imgs);
     	
         var wrapper = document.createElement("div");
         var image = document.createElement("img");
-            image.src = imgs.url;
+            image.src = imgs.images.fixed_height.url;
             image.className = "photo";
 			image.style.maxWidth = this.config.maxWidth;
 			
