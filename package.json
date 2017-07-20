@@ -1,0 +1,19 @@
+{
+  "name": "mmm-easypix",
+  "version": "1.0.0",
+  "description": "The easiest way to show pictures onto your mirror.",
+  "main": "MMM-EasyPix.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "node-gallery": "^1.1.0",
+    "readdir": "0.0.13",
+    "readdir-recursive": "0.0.4",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {}
+}
