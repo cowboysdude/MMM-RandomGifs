@@ -1,7 +1,7 @@
 /* Magic Mirror
-    * Module: MMM-EasyPix
+    * Module: MMM-RandomGifs
     *
-    * By Mykle1
+    * By Cowboysdude
     * 
     */
 const NodeHelper = require('node_helper');
