@@ -1,7 +1,7 @@
 /* Magic Mirror
  * Module: MMM-RandomGifs
  *
- * By Mykle1
+ * By Cowboysdude
  * MIT Licensed.
  */
 Module.register("MMM-RandomGifs", {
