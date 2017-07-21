@@ -1,14 +1,15 @@
 /* Magic Mirror
  * Module: MMM-RandomGifs
  *
- * By Me
+ * By Mykle1
  * MIT Licensed.
  */
 Module.register("MMM-RandomGifs", {
 
     defaults: {
         Key: "",   
-		Rating: "G",
+		Search: "G",
+		limit: "25",
 		maxWidth: "350px",            
 		rotateInterval: 5 * 1000,
 		updateInterval: 10 * 60 * 1000,
@@ -16,8 +17,8 @@ Module.register("MMM-RandomGifs", {
 		},                               
 
     start: function() {
-    	this.url = "https://api.giphy.com/v1/gifs/trending?api_key="+this.config.Key+"&limit=150&rating="+this.config.Rating;  
-    	//rating Y G PG PG13 R
+    	this.url = "https://api.giphy.com/v1/gifs/search?api_key="+this.config.Key+"&q="+this.config.Search+"&limit="+this.config.limit+"&offset=0&rating=R&lang=en";
+    	
         this.Rimgs = [];
         this.activeItem = 0;
         this.rotateInterval = null;
@@ -41,7 +42,7 @@ Module.register("MMM-RandomGifs", {
     	
         var wrapper = document.createElement("div");
         var image = document.createElement("img");
-            image.src = imgs.images.fixed_height.url;
+            image.src = imgs.images.downsized_large.url;
             image.className = "photo";
 			image.style.maxWidth = this.config.maxWidth;
 			
